@@ -1,0 +1,35 @@
+---
+title: Bar Plots
+author: Gillian McNally
+date: '2017-10-05'
+slug: bar-plots
+categories:
+  - ggplot2
+  - R
+  - Rstudio
+tags:
+  - data visualization
+  - data science
+  - bar plots
+---
+
+
+
+<p>This type of data visualiztion is my personal favorite. I hope you like learning about it too!</p>
+<p>Let’s make sure to install the proper pakages.</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>This example will look at the team homerun totals for all the MLB teams in 1980.</p>
+<pre class="r"><code>query&lt;-&quot;SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR &quot;
+result&lt;-sqldf(query)
+
+result$name&lt;-factor(result$name,levels=result$name)</code></pre>
+<p>It is important to let the system know how the data should appear in, by saving the command as factor.</p>
+<pre class="r"><code>ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;)+
+  coord_flip()+
+  ggtitle(&quot;1980 Team Homerun Totals&quot;)+
+  xlab(&quot;Team Name&quot;)+
+  ylab(&quot;Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-10-05-bar-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>

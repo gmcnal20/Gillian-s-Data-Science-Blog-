@@ -1,0 +1,53 @@
+---
+title: Scatterplot Fun
+author: Gillian McNally
+date: '2017-10-05'
+slug: scatterplot-fun
+categories:
+  - R
+  - ggplot2
+tags:
+  - scatterplot
+  - data science
+  - data visualization
+---
+
+Let's learn how to create our own scatter plot!
+
+
+First, we need to install the following pakages and store them by putting them into library.
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Let's try to find some information using the packages we just installed. We are going to try to find career homeruns and strikeouts from players who had more than 400 homeruns. 
+
+```{r}
+query<-"SELECT playerID,sum(HR),sum(SO)
+FROM Batting 
+GROUP BY playerID
+HAVING sum(HR)>400"
+sqldf(query)
+```
+
+Now that you have the information, save it as result so that we can make a scatter plot.
+```{r}
+query<-"SELECT playerID,sum(HR) AS CareerHR,sum(SO) AS CareerSO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>400"
+result<-sqldf(query)
+```
+
+Let's now use ggplot2 to help us make a nice graph with the data we just collected. Feel free to add your own titles to make it look nice.
+
+```{r}
+ggplot()+
+geom_point(data=result,aes(x=CareerSO,y=CareerHR),size=3)+
+ggtitle("Career Strikeouts and Homeruns - The Best")+
+xlab("Career Strikeouts")+
+ylab("Career Homeruns")
+```

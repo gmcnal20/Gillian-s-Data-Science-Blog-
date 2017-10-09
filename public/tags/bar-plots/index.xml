@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bar Plots on Data Science by Gillian McNally</title>
+    <link>/tags/bar-plots/</link>
+    <description>Recent content in Bar Plots on Data Science by Gillian McNally</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
+    <lastBuildDate>Thu, 05 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/bar-plots/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bar Plots</title>
+      <link>/post/bar-plots/</link>
+      <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bar-plots/</guid>
+      <description>This type of data visualiztion is my personal favorite. I hope you like learning about it too!
+Let’s make sure to install the proper pakages.
+library(Lahman) library(sqldf) library(ggplot2) This example will look at the team homerun totals for all the MLB teams in 1980.
+query&amp;lt;-&amp;quot;SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR &amp;quot; result&amp;lt;-sqldf(query) result$name&amp;lt;-factor(result$name,levels=result$name) It is important to let the system know how the data should appear in, by saving the command as factor.</description>
+    </item>
+    
+  </channel>
+</rss>

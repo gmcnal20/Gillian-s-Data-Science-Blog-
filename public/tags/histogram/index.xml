@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Histogram on Data Science by Gillian McNally</title>
+    <link>/tags/histogram/</link>
+    <description>Recent content in Histogram on Data Science by Gillian McNally</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
+    <lastBuildDate>Thu, 05 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/histogram/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Histograms</title>
+      <link>/post/histograms/</link>
+      <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/histograms/</guid>
+      <description>Welcome back we are going to try a Histogram example!
+Alright, in this example we will look at the weights of MLB players through the Master table in the Lahman database.` Make sure you have the following applications ready to work with:
+library(Lahman) library(sqldf) library(ggplot2) This request uses the Master table to gather its data.
+query&amp;lt;-&amp;quot;SELECT weight FROM Master&amp;quot; result&amp;lt;-sqldf(query) Let’s try it out using our handy tool ggplot2!
+ggplot()+ geom_histogram(data=result,aes(x=weight),color=&amp;quot;blue&amp;quot;,fill=&amp;quot;white&amp;quot;,bins=60)+ ggtitle(&amp;quot;Distribution of Baseball Player Bodyweight&amp;quot;)+ xlab(&amp;quot;Weight of player&amp;quot;)+ ylab(&amp;quot;Number of players&amp;quot;) ## Warning: Removed 854 rows containing non-finite values (stat_bin).</description>
+    </item>
+    
+  </channel>
+</rss>

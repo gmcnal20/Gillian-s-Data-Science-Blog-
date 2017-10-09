@@ -1,0 +1,64 @@
+---
+title: 'Blank Dash Board '
+author: Gillian McNally
+date: '2017-10-05'
+slug: blank-dash-board
+categories:
+  - ggplot2
+  - R
+  - Rstudio
+tags:
+  - data science
+  - data visualization
+  - sql
+  - flexdashboard
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Yankee Homerun Total Throughout the Years
+
+```{r}
+#extracting the data----------------------------------------
+
+query<-"SELECT yearId,HR
+FROM Teams
+WHERE teamID='NYA'"
+
+result<-sqldf(query)
+
+#visualizing the data----------------------------------------
+
+ggplot()+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  xlab('year')+
+  ylab('homeruns')
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+

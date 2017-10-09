@@ -1,0 +1,27 @@
+baseurl = "https://gilliansdatascienceblog.netlify.com/"
+languageCode = "en-us"
+title = "Data Science by Gillian McNally"
+# Define how many pages appear per site
+paginate = 10
+theme = "hugo-minimalist-theme"
+# Remove this line if you use this theme for a real website.
+# It allows you to preview the theme within the exampleSite folder
+# with the hugo server command
+
+[params]
+    site_author = "Gillian McNally"
+    site_description = "Mercyhurst Intro to Data Science"
+    location = "Mercyhurst University"
+    # Link custom assets relative to /static
+    avatar = "img/gillian.jpg"
+    header_background = "img/mercyhurst.jpg"
+    header_title = "Gillian's Data Science Blog"
+    copyright = "Powered by [Hugo](http://gohugo.io)."
+    custom_css = []
+    custom_js  = []
+
+[social]
+    # Add your social network accounts to the profile section on the left
+    # by entering your username. The links to your account will be
+    # create automatically.
+    github    = "gmcnal20"

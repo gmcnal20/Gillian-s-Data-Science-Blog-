@@ -1,0 +1,63 @@
+---
+title: Histograms
+author: Gillian McNally
+date: '2017-10-05'
+slug: histograms
+categories:
+  - ggplot2
+  - R
+tags:
+  - data visualization
+  - sql
+  - histogram
+---
+
+Welcome back we are going to try a Histogram example!
+
+Alright, in this example we will look at the weights of MLB players through the Master table in the Lahman database.` Make sure you have the following applications ready to work with:
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+
+This request uses the Master table to gather its data.
+
+```{r}
+query<-"SELECT weight FROM Master"
+result<-sqldf(query)
+```
+
+Let's try it out using our handy tool ggplot2!
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=60)+
+  ggtitle("Distribution of Baseball Player Bodyweight")+
+  xlab("Weight of player")+
+  ylab("Number of players")
+```
+
+We can manipulate the color and size of bins (or width) in the histogram to create the perfect look.
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=10)+
+  ggtitle("Distribution of Baseball Player Bodyweight")+
+  xlab("Weight of player")+
+  ylab("Number of players")
+```
+
+These examples help us to see drastic change when modifying our histograms.
+
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=100)+
+  ggtitle("Distribution of Baseball Player Bodyweight")+
+  xlab("Weight of player")+
+  ylab("Number of players")
+```
+
+I hope this helps you with future data visualization techniques!

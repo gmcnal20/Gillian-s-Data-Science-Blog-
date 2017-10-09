@@ -1,0 +1,44 @@
+---
+title: Time Series
+author: Gillian McNally
+date: '2017-10-05'
+slug: time-series
+categories:
+  - ggplot2
+  - R
+  - Rstudio
+tags:
+  - data science
+  - data visualization
+---
+
+Here is another cool data visualization example using a times series graph
+
+Just like the last post we have to make sure we dowload all the proper pakages and put them into library.
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+
+In this post we will view Babe Ruth's homeruns over his career in baseball. 
+
+```{r}
+query<-"SELECT yearID,HR FROM Batting WHERE playerID='ruthba01'"
+result<-sqldf(query)
+```
+
+Now the best part, the graph! Again, using ggplot2 we will graph the line and points of the information we just collected, to form a time series.
+
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=yearID,y=HR),size=1/2)+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Babe Ruth's Homeruns by Year")+
+  xlab("Year")+
+  ylab("Number of Homeruns")
+```
+
+Hope you liked this example stay tuned for more R tutorials!
